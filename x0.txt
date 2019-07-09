@@ -1,0 +1,448 @@
+#include <iostream>
+#include <time.h>
+#include <iomanip>
+#define N 3
+using namespace std;
+///////////////
+void set(char arr[N][N])
+{
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++)
+		{
+			arr[i][j] = '-';
+		}
+	}
+}
+void print(char arr[N][N])
+{
+	cout << "\n\n\n\n\n";
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++)
+		{
+			cout << setw(5) << arr[i][j];
+		}
+		cout << "\n";
+	}
+	cout << "\n\n\n\n\n";
+}
+void moneta(int random)
+{
+	cout << " Кидок монети...Орел/Решка " << "\n\n";
+	if (random == 1)
+	{
+		cout << " Орел " << "\n\n";
+	}
+	else
+	{
+		cout << " Решка " << "\n\n";
+	}
+}
+void step1(char arr[N][N],int a)
+{
+	bool x = true;
+	do
+	{
+		if (a == 1 && arr[0][0] == '-')
+		{
+			arr[0][0] = 'x';
+			x = false;
+		}
+		if (a == 2 && arr[0][1] == '-')
+		{
+			arr[0][1] = 'x';
+			x = false;
+		}
+		if (a == 3 && arr[0][2] == '-')
+		{
+			arr[0][2] = 'x';
+			x = false;
+		}
+		if (a == 4 && arr[1][0] == '-')
+		{
+			arr[1][0] = 'x';
+			x = false;
+		}
+		if (a == 5 && arr[1][1] == '-')
+		{
+			arr[1][1] = 'x';
+			x = false;
+		}
+		if (a == 6 && arr[1][2] == '-')
+		{
+			arr[1][2] = 'x';
+			x = false;
+		}
+		if (a == 7 && arr[2][0] == '-')
+		{
+			arr[2][0] = 'x';
+			x = false;
+		}
+		if (a == 8 && arr[2][1] == '-')
+		{
+			arr[2][1] = 'x';
+			x = false;
+		}
+		if (a == 9 && arr[2][2] == '-')
+		{
+			arr[2][2] = 'x';
+			x = false;
+		}
+		if (x == true)
+		{
+			cout << " Ви не можете це зробити! " << "\n"
+				<< " Ходiть ще раз... ";
+			cin >> a;
+		}
+		print(arr);
+	} while (x);
+}
+void step2(char arr[N][N], int a)
+{
+	bool x = true;
+	do
+	{
+		if (a == 1 && arr[0][0] == '-')
+		{
+			arr[0][0] = '0';
+			x = false;
+		}
+		if (a == 2 && arr[0][1] == '-')
+		{
+			arr[0][1] = '0';
+			x = false;
+		}
+		if (a == 3 && arr[0][2] == '-')
+		{
+			arr[0][2] = '0';
+			x = false;
+		}
+		if (a == 4 && arr[1][0] == '-')
+		{
+			arr[1][0] = '0';
+			x = false;
+		}
+		if (a == 5 && arr[1][1] == '-')
+		{
+			arr[1][1] = '0';
+			x = false;
+		}
+		if (a == 6 && arr[1][2] == '-')
+		{
+			arr[1][2] = '0';
+			x = false;
+		}
+		if (a == 7 && arr[2][0] == '-')
+		{
+			arr[2][0] = '0';
+			x = false;
+		}
+		if (a == 8 && arr[2][1] == '-')
+		{
+			arr[2][1] = '0';
+			x = false;
+		}
+		if (a == 9 && arr[2][2] == '-')
+		{
+			arr[2][2] = '0';
+			x = false;
+		}
+		if (x == true)
+		{
+			cout << " Ви не можете це зробити! " << "\n"
+				<< " Ходiть ще раз... ";
+			cin >> a;
+		}
+		print(arr);
+	} while (x);
+}
+void step_bot(char arr[N][N], int a)
+{
+	bool x = true;
+	do
+	{
+		if (a == 1 && arr[0][0] == '-')
+		{
+			arr[0][0] = '0';
+			x = false;
+		}
+		if (a == 2 && arr[0][1] == '-')
+		{
+			arr[0][1] = '0';
+			x = false;
+		}
+		if (a == 3 && arr[0][2] == '-')
+		{
+			arr[0][2] = '0';
+			x = false;
+		}
+		if (a == 4 && arr[1][0] == '-')
+		{
+			arr[1][0] = '0';
+			x = false;
+		}
+		if (a == 5 && arr[1][1] == '-')
+		{
+			arr[1][1] = '0';
+			x = false;
+		}
+		if (a == 6 && arr[1][2] == '-')
+		{
+			arr[1][2] = '0';
+			x = false;
+		}
+		if (a == 7 && arr[2][0] == '-')
+		{
+			arr[2][0] = '0';
+			x = false;
+		}
+		if (a == 8 && arr[2][1] == '-')
+		{
+			arr[2][1] = '0';
+			x = false;
+		}
+		if (a == 9 && arr[2][2] == '-')
+		{
+			arr[2][2] = '0';
+			x = false;
+		}
+		if (x == true)
+		{
+			a = rand() % 10;
+		}
+		print(arr);
+	} while (x);
+}
+int step_bot2(char arr[N][N])
+{
+	if (arr[0][0] == 'x'&&arr[1][1] == 'x'&&arr[2][2] == '-')
+	{
+		arr[2][2] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[0][2] == 'x'&&arr[1][1] == 'x'&&arr[2][0] == '-')
+	{
+		arr[2][0] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[0][0] == 'x'&&arr[0][1] == 'x'&&arr[0][2] == '-')
+	{
+		arr[0][2] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[1][0] == 'x'&&arr[1][1] == 'x'&&arr[1][2] == '-')
+	{
+		arr[1][2] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[2][0] == 'x'&&arr[2][1] == 'x'&&arr[2][2] == '-')
+	{
+		arr[2][2] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[0][0] == 'x'&&arr[1][0] == 'x'&&arr[2][0] == '-')
+	{
+		arr[2][0] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[0][1] == 'x'&&arr[1][1] == 'x'&&arr[2][1] == '-')
+	{
+		arr[2][1] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[0][2] == 'x'&&arr[1][2] == 'x'&&arr[2][2] == '-')
+	{
+		arr[2][2] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[2][0] == 'x'&&arr[1][1] == 'x'&&arr[0][2] == '-')
+	{
+		arr[0][2] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[0][2] == 'x'&&arr[0][1] == 'x'&&arr[0][0] == '-')
+	{
+		arr[0][0] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[1][2] == 'x'&&arr[1][1] == 'x'&&arr[1][0] == '-')
+	{
+		arr[1][0] = '0';
+		print(arr);
+		return 1;
+	}
+	if (arr[2][2] == 'x'&&arr[2][1] == 'x'&&arr[2][0] == '-')
+	{
+		arr[2][0] = '0';
+		print(arr);
+		return 1;
+	}
+}
+int win1(char arr[N][N])
+{
+	if (arr[0][0] == 'x'&&arr[1][1] == 'x'&&arr[2][2] == 'x'|| arr[0][2] == 'x'&&arr[1][1] == 'x'&&arr[2][0] == 'x')
+	{
+		return 1;
+	}
+	if (arr[0][0] == 'x'&&arr[1][0] == 'x'&&arr[2][0] == 'x' || arr[0][1] == 'x'&&arr[1][1] == 'x'&&arr[2][1] == 'x' || arr[0][2] == 'x'&&arr[1][2] == 'x'&&arr[2][2] == 'x')
+	{
+		return 1;
+	}
+	if (arr[0][0] == 'x'&&arr[0][1] == 'x'&&arr[0][2] == 'x' || arr[1][0] == 'x'&&arr[1][1] == 'x'&&arr[1][2] == 'x' || arr[2][0] == 'x'&&arr[2][1] == 'x'&&arr[2][2] == 'x')
+	{
+		return 1;
+	}
+}
+int win2(char arr[N][N])
+{
+	if (arr[0][0] == '0'&&arr[1][1] == '0'&&arr[2][2] == '0' || arr[0][2] == '0'&&arr[1][1] == '0'&&arr[2][0] == '0')
+	{
+		return 2;
+	}
+	if (arr[0][0] == '0'&&arr[1][0] == '0'&&arr[2][0] == '0' || arr[0][1] == '0'&&arr[1][1] == '0'&&arr[2][1] == '0' || arr[0][2] == '0'&&arr[1][2] == '0'&&arr[2][2] == '0')
+	{
+		return 2;
+	}
+	if (arr[0][0] == '0'&&arr[0][1] == '0'&&arr[0][2] == '0' || arr[1][0] == '0'&&arr[1][1] == '0'&&arr[1][2] == '0' || arr[2][0] == '0'&&arr[2][1] == '0'&&arr[2][2] == '0')
+	{
+		return 2;
+	}
+}
+int winner1(bool x)
+{
+	x = false;
+	cout << " Гравець 1 - Переможець! " << "\n\n\n";
+	return x;
+}
+int winner2(bool x)
+{
+	x = false;
+	cout << " Гравець 2 - Переможець! " << "\n\n\n";
+	return x;
+}
+///////////////
+int main()
+{
+	setlocale(LC_ALL, ("UKR"));
+	srand(time(0));
+	char arr[N][N];
+	int a, b, random, i = 0, c;
+	bool x;
+	random = rand() % 2;
+	cout<< " 1 - Гравець + гравець. " << "\n"
+		<< " 2 - Гравець + компютер. " << "\n";
+	cin >> c;
+	switch (c)
+	{
+	case 1:
+	{
+		x = true;
+		set(arr);
+		print(arr);
+		moneta(random);
+		do
+		{
+			cout << " Гравець 1:	";
+			cin >> a;
+			i++;
+			step1(arr, a);
+			win1(arr);
+			if (i >= 9)
+			{
+				if (win1(arr) == 1)
+				{
+					winner1(x);
+					break;
+				}
+				if (win2(arr) == 2)
+				{
+					winner2(x);
+					break;
+				}
+				cout << " Нiчия! " << "\n\n\n";
+				x = false;
+				break;
+			}
+			if (win1(arr) == 1)
+			{
+				winner1(x);
+				break;
+			}
+			cout << " Гравець 2:	";
+			cin >> b;
+			i++;
+			step2(arr, b);
+			if (win2(arr) == 2)
+			{
+				winner2(x);
+				break;
+			}
+		} while (x);
+		break;
+	}
+	case 2:
+	{
+		x = true;
+		set(arr);
+		print(arr);
+		do
+		{
+			cout << " Гравець 1:	";
+			cin >> a;
+			i++;
+			step1(arr, a);
+			win1(arr);
+			if (i >= 9)
+			{
+				if (win1(arr) == 1)
+				{
+					winner1(x);
+					break;
+				}
+				if (win2(arr) == 2)
+				{
+					winner2(x);
+					break;
+				}
+				cout << " Нiчия! " << "\n\n\n";
+				x = false;
+				break;
+			}
+			if (win1(arr) == 1)
+			{
+				winner1(x);
+				break;
+			}
+			cout << " Гравець 2:	";
+			if (step_bot2(arr)==1)
+			{
+				step_bot2(arr);//
+			}
+			else
+			{
+				b = rand() % 10;
+				step_bot(arr, b);
+			}
+			i++;
+			if (win2(arr) == 2)
+			{
+				winner2(x);
+				break;
+			}
+		} while (x);
+		break;
+	}
+	}
+	system("pause");
+}
